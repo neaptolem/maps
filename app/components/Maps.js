@@ -9,7 +9,7 @@ class Maps extends Component {
         const mapNode = maps.map((map) => {
             return (
                 <Link
-                    to={"/maps/"+map.id}
+                    to={`/maps/${map.id}`}
                     className="list-group-item"
                     key={map.id}>
                     {map.name}
