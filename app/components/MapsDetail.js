@@ -1,6 +1,15 @@
 import React from 'react';
 
+import ReactDOM from 'react-dom';
+var Isvg = require('react-inlinesvg');
+
+
 export default React.createClass({
+  componentDidMount: function() {
+  //  console.log(ReactDOM.findDOMNode('Isvg'));
+  //  console.log(document.getElementsByTagName('svg'));
+  var doc=loadXMLDoc("/../svg/f1.svg")
+},
     render() {
         const maps = this.props.route.data;
         const id = this.props.params.id;
@@ -9,7 +18,6 @@ export default React.createClass({
                 return map;
             }
         });
-
         return (
             <div>
                 <div className="row">
@@ -17,10 +25,10 @@ export default React.createClass({
                         <li>name: {map[0].name}</li>
                         <li>id: {map[0].id}</li>
                         <li>detail:{map[0].detail}</li>
-                        <li>{map[0].paths[0]}</li>
                     </ul>
-                    <object type="image/svg+xml" data={`/../svg/f${map[0].id}.svg`}>
-                    </object>
+                    <div ref="mySVG">
+                      <Isvg src={`/../svg/f${map[0].id}.svg`}></Isvg>
+                    </div>
                 </div>
             </div>
         )

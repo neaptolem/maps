@@ -7,7 +7,6 @@ export default React.createClass({
     return (
       <div>
         <h1>App</h1>
-        <input onKeyUp={this.updateUser} />
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to={"/maps"}>Maps</Link></li>
