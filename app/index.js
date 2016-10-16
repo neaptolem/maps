@@ -12,11 +12,14 @@ import Maps from './components/Maps';
 
 const data=[
   {id:1,
-  name:'map1'
+  name:'map1',
+  detail:'smth'
 },
 {
-  id:2,
-  name:'map2'
+  id:3,
+  name:'map3',
+  detail:'smth',
+  paths:[{id:'path23185',name:'1'},{id:'path23187',name:'2'}]
   }
 ]
 

@@ -10,7 +10,7 @@ export default React.createClass({
         <input onKeyUp={this.updateUser} />
         <ul>
           <li><Link to="/">Home</Link></li>
-          <li><Link to={"/maps"}>User</Link></li>
+          <li><Link to={"/maps"}>Maps</Link></li>
         </ul>
         <div>{this.props.children}</div>
       </div>
