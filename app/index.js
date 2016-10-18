@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import {render} from 'react-dom';
 
-import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 
 import App from './components/App';
 import Index from './components/Index';
-import MapsDetail from './components/MapsDetail';
+import MapDetails from './components/MapDetails';
 import Maps from './components/Maps';
 
 const data = [
@@ -21,10 +21,10 @@ const data = [
 ]
 
 render(
-    <Router history={browserHistory}>
+    <Router history={hashHistory}>
     <Route path="" component={App}>
         <Route path="/" component={Index}/>
         <Route path="/maps" component={Maps} data={data}/>
-        <Route path="/maps/:id" component={MapsDetail} data={data}/>
+        <Route path="/maps/:id" component={MapDetails} data={data}/>
     </Route>
 </Router>, document.getElementById('root'));
