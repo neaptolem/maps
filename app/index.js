@@ -4,6 +4,8 @@ import {render} from 'react-dom';
 
 import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 
+import './stylesheets/common.css';
+
 import App from './components/App';
 import Index from './components/Index';
 import MapDetails from './components/MapDetails';
