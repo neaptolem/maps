@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
+import { Container } from 'flux/utils';
 
 import SVGMap from './SVGMap';
 import MapDescription from './MapDescription';
+import MapsStore from '../stores/MapsStore';
 
 
-export default class MapDetails extends Component {
-
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
+class MapDetails extends Component {
+  
+  static getStores() {
+    return [MapsStore];
   }
 
-  handleClick(e) {
-    console.log(e.target);
+  static calculateState(prevState) {
+    return {
+      maps: MapsStore.getState()
+    };
   }
 
   render() {
-    const maps = this.props.route.data;
-    const id = this.props.params.id;
-    const map = maps.filter(map => {
-      if (map.id == id) {
+    const mapId = this.props.params.id;
+    const map = this.state.maps.filter(map => {
+      if (map.id == mapId) {
         return map;
       }
     })[0];
@@ -32,3 +34,5 @@ export default class MapDetails extends Component {
     );
   }
 }
+
+export default Container.create(MapDetails);
