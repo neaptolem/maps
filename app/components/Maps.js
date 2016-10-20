@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
+import { Container } from 'flux/utils';
 import { Link } from 'react-router';
 
+import MapsStore from '../stores/MapsStore';
+
 class Maps extends Component {
+
+  static getStores() {
+    return [MapsStore];
+  }
+
+  static calculateState(prevState) {
+    return {
+      maps: MapsStore.getState()
+    };
+  }
+
   render() {
-    const maps = this.props.route.data;
+    const maps = this.state.maps;
     const mapNodes = maps.map((map) => {
       return (
         <Link to={`/maps/${map.id}`}
@@ -24,4 +38,4 @@ class Maps extends Component {
   }
 }
 
-export default Maps;
+export default Container.create(Maps);
