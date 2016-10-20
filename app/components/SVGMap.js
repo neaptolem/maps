@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import fetch from 'isomorphic-fetch';
 
 class SVGMap extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -31,10 +30,10 @@ class SVGMap extends Component {
 
   handleClick(e) {
     const attributes = e.target.attributes;
-    const fillColor = attributes.fill.nodeValue;
+    const fillColor = attributes.fill.value;
     const isRoom = fillColor === '#ffe680';
     if (isRoom) {
-      const id = attributes.id.nodeValue;
+      const id = attributes.id.value;
       console.log(`Room id: ${id}`);
     }
   }
