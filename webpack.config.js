@@ -1,10 +1,11 @@
 var webpack = require('webpack');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 module.exports = {
-  devtool: 'inline-source-map',
+  devtool: 'sourcemap',
   entry: {
     app: path.resolve(__dirname, 'app/index.js')
   },
@@ -13,13 +14,17 @@ module.exports = {
     filename: '[name].bundle.js'
   },
   module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'react']
-        }
+    loaders: [{
+      test: /\.js$/,
+      loader: 'babel?cacheDirectory=false',
+      exclude: /node_modules/,
+      include: path.join(__dirname, 'app')
+    },
+    {
+      test: /\.css$/,
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader', 'postcss-loader'),
+      exclude: /node_modules/,
+      include: path.join(__dirname, 'app/stylesheets')
     }]
   },
   plugins: [
@@ -27,6 +32,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'React Test',
       template: 'app/index.html'
-    })
+    }),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
+    new ExtractTextPlugin('styles.css')
   ]
 };
