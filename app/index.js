@@ -6,10 +6,10 @@ import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 
 import './stylesheets/common.css';
 
-import App from './components/App';
-import Index from './components/Index';
-import MapDetails from './components/MapDetails';
-import Maps from './components/Maps';
+import App from './containers/App';
+import Index from './containers/Index';
+import MapDetails from './containers/MapDetails';
+import Maps from './containers/Maps';
 
 
 render(

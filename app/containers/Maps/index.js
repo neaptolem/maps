@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container } from 'flux/utils';
 import { Link } from 'react-router';
 
-import MapsStore from '../stores/MapsStore';
+import MapsStore from './stores';
 
 class Maps extends Component {
 
