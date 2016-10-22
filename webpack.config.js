@@ -3,11 +3,10 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-
 module.exports = {
   devtool: 'sourcemap',
   entry: {
-    app: path.resolve(__dirname, 'app/index.js')
+    app: path.resolve(__dirname, 'app/index.js'),
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -33,8 +32,9 @@ module.exports = {
       title: 'React Test',
       template: 'app/index.html'
     }),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin(),
-    new ExtractTextPlugin('styles.css')
+    new ExtractTextPlugin('styles.css'),
   ]
 };

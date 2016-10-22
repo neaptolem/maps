@@ -9,11 +9,21 @@ class Login extends Component {
       password: ''
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleUsername = this.handleUsername.bind(this);
+    this.handlePassword = this.handlePassword.bind(this);
   }
 
   handleClick() {
     const handleLogin = this.props.handleLogin;
-    handleLogin(this.state);
+    handleLogin(this.state.usernameOrEmail, this.state.password);
+  }
+
+  handleUsername(e) {
+    this.setState({ usernameOrEmail: e.target.value });
+  }
+
+  handlePassword(e) {
+    this.setState({ password: e.target.value });
   }
 
   render() {
@@ -23,10 +33,10 @@ class Login extends Component {
           <fieldset>
             <legend>Login</legend>
             <section>
-              <input placeholder="Username or email" />
+              <input placeholder="Username or email" onChange={this.handleUsername} />
             </section>
             <section>
-              <input placeholder="Password" type="password" />
+              <input placeholder="Password" type="password" onChange={this.handlePassword}/>
             </section>
             <section>
               <button onClick={this.handleClick}>Login</button>
@@ -39,7 +49,7 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  handleLogin: PropTypes.func.isRequred
+  handleLogin: PropTypes.func
 };
 
 export default Login;

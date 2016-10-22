@@ -18,8 +18,8 @@ class App extends Component {
   }
 
   render() {
-    const login = this.state.login;
-    return !login.isLoggedIn ? (
+    const loginState = this.state.login;
+    return !loginState.loggedIn ? (
       <Login handleLogin={login}/>
     ) : (
       <div>
