@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { Container } from 'flux/utils';
 
-import SVGMap from './SVGMap';
-import MapDescription from './MapDescription';
-import MapsStore from '../stores/MapsStore';
-
+import SVGMap from '../../components/SVGMap';
+import MapDescription from '../../components/MapDescription';
+import MapsStore from '../Maps/stores';
 
 class MapDetails extends Component {
-  
   static getStores() {
     return [MapsStore];
   }

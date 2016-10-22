@@ -1,6 +1,6 @@
 import { ReduceStore } from 'flux/utils';
 
-import AppDispatcher from '../dispatcher';
+import AppDispatcher from '../../dispatcher';
 
 class MapsStore extends ReduceStore {
   getInitialState() {
