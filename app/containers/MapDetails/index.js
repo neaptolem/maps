@@ -4,6 +4,7 @@ import { Container } from 'flux/utils';
 import SVGMap from '../../components/SVGMap';
 import MapDescription from '../../components/MapDescription';
 import MapsStore from '../Maps/stores';
+import InputMapData from '../../components/InputMapData'
 
 class MapDetails extends Component {
   static getStores() {
@@ -27,6 +28,7 @@ class MapDetails extends Component {
     return (
       <section>
         <MapDescription map={map} />
+        <InputMapData />
         <SVGMap svgMap={map} />
       </section>
     );
